@@ -551,43 +551,67 @@ function downloadICS(){
 
 // Real workshop content & rotation, sourced from the "Workshops" Notion planning page
 const WORKSHOPS = {
-  w1: {
+  w1_beginner: {
     title:{fr:"Panorama des outils IA & prompting",en:"AI Tools Panorama & Prompting"},
     desc:{
-      fr:"Tour d'horizon de ChatGPT, Claude et Gemini, puis 3 cas d'usage voyage démontrés en direct (devis, email, itinéraire) et les bases du prompt. Objectif : repartir en sachant quel outil utiliser, pour quoi, et par où commencer.",
-      en:"A tour of ChatGPT, Claude and Gemini, then 3 travel-specific use cases demoed live (quote draft, email rewrite, itinerary outline) and the basics of good prompting. Goal: leave knowing what tools exist, what they're good for, and where to start."
+      fr:"Un tour d'horizon accessible aux débutants des outils IA utiles pour le voyage — ce que chacun fait de mieux, et les bases pour écrire un bon prompt. Avec 3 démos en direct : rédaction d'un devis, réécriture d'un email, construction d'un itinéraire.",
+      en:"A beginner-friendly tour of the AI tools relevant to travel — what each one does best, and the basics of writing a good prompt. Includes 3 live demos: drafting a quote, rewriting an email, outlining an itinerary."
     },
     duration:"1h", audience:{fr:"Agents",en:"Agents"}, lang:"🇫🇷"
   },
-  w2: {
+  w1_intermediate: {
+    title:{fr:"Panorama des outils IA & prompting",en:"AI Tools Panorama & Prompting"},
+    desc:{
+      fr:"Un tour d'horizon des outils IA utiles pour le voyage, affiné pour celles et ceux qui les utilisent déjà au quotidien — avec un rappel des bases du prompting, et 3 démos en direct : rédaction d'un devis, réécriture d'un email, construction d'un itinéraire.",
+      en:"A tour of the AI tools relevant to travel, sharpened for those already using them day to day — plus a refresher on prompting basics, with 3 live demos: drafting a quote, rewriting an email, outlining an itinerary."
+    },
+    duration:"1h", audience:{fr:"Agents",en:"Agents"}, lang:"🇫🇷"
+  },
+  w2_beginner: {
     title:{fr:"IA & Vente",en:"AI & Sales"},
     desc:{
-      fr:"La communication client (emails, relances) est le 3ᵉ point de friction des agents (45%). Cet atelier aide à automatiser les messages répétitifs — confirmations, relances, objections, avis — pour se recentrer sur la relation humaine, le conseil et l'expertise.",
-      en:"Client communication (emails, follow-ups) is agents' #3 pain point (45%). This workshop helps automate repetitive messages — confirmations, reminders, objections, reviews — to refocus on human relationship, advice and expertise."
+      fr:"Construis ton propre AI Sales Coach dans Claude : prépare ton appel découverte, transforme-le en fiche de besoins claire, audite ton devis par rapport à celle-ci, et façonne l'argumentaire qui défend ta proposition — avec entraînement à l'appel et réponses vérifiées sur les politiques intégrées.",
+      en:"Build your own AI Sales Coach in Claude: prep your discovery call, turn it into a clear needs sheet, audit your quote against it, and craft the story that defends your proposal — with call practice and fact-checked policy answers built in."
     },
     duration:"1h30", audience:{fr:"Agents",en:"Agents"}, lang:"🇫🇷"
   },
-  w3: {
+  w2_intermediate: {
+    title:{fr:"IA & Vente",en:"AI & Sales"},
+    desc:{
+      fr:"Construis un AI Sales Coach réutilisable dans Claude : préparation d'appel, fiche de besoins, audit de devis et argumentaire — pour faire passer l'IA d'un prompt ponctuel à un vrai réflexe dans ton flux de vente.",
+      en:"Build a reusable AI Sales Coach in Claude: call prep, needs sheet, quote audit, and pitch — turning AI from a one-off prompt into a consistent part of your sales workflow."
+    },
+    duration:"1h30", audience:{fr:"Agents",en:"Agents"}, lang:"🇫🇷"
+  },
+  w3_beginner: {
     title:{fr:"Cas d'usage IA & efficacité opérationnelle",en:"AI Use Cases & Operational Efficiency"},
     desc:{
-      fr:"Les deux plus gros points de friction : rédiger des devis (51%) et construire des itinéraires (50%). Format : démo (25min) → clinique de prompting pratique (40min) → partage entre pairs (15min) → conclusion (10min). Objectif : diviser par deux le temps de rédaction d'une proposition.",
-      en:"The two biggest pain points: writing quotes (51%) and building itineraries (50%). Format: demo (25min) → hands-on prompting clinic (40min) → peer sharing (15min) → wrap-up (10min). Goal: cut proposal writing time in half."
+      fr:"Une session ludique et pratique : en petites équipes, vous construirez une proposition de voyage complète, d'un brief client incomplet à une présentation prête pour le client — en utilisant l'IA à chaque étape — puis vous la présenterez en direct.",
+      en:"A gamified, hands-on session: in small teams, you'll build a full travel proposal from an incomplete client brief to a client-ready presentation — using AI at every step — and pitch it live."
+    },
+    duration:"1h30", audience:{fr:"Agents",en:"Agents"}, lang:"🇫🇷"
+  },
+  w3_intermediate: {
+    title:{fr:"Cas d'usage IA & efficacité opérationnelle",en:"AI Use Cases & Operational Efficiency"},
+    desc:{
+      fr:"Une session ludique et pratique : construisez une proposition de voyage complète, d'un brief incomplet à une présentation prête pour le client, en utilisant l'IA à chaque étape — puis présentez-la en direct. Les équipes Intermediate enchaînent l'exercice complet à un rythme plus soutenu.",
+      en:"A gamified, hands-on session: build a full travel proposal from an incomplete brief to a client-ready presentation using AI at every step — then pitch it live. Intermediate teams move through the full exercise at a faster pace."
     },
     duration:"1h30", audience:{fr:"Agents",en:"Agents"}, lang:"🇫🇷"
   },
   w4: {
     title:{fr:"Session d'introduction IA Advanced",en:"AI Advanced Intro Session"},
     desc:{
-      fr:"Comprendre comment l'IA peut renforcer la performance de son équipe, sans créer de résistance ni perdre en qualité. Focus : créer ses propres workflows et les rendre réutilisables (Skills).",
-      en:"Understand how AI can strengthen team performance — without creating resistance, losing quality, or drowning in tools. Focus: building your own workflows and making them reusable (Skills)."
+      fr:"Une session rapide et interactive pour aligner tout le monde sur le vocabulaire IA essentiel — agent vs. chatbot, hallucination, contexte, connecteurs/MCP, Skills — puis montre comment transformer un prompt ponctuel en workflow réutilisable et packagé.",
+      en:"A fast, interactive session that aligns everyone on core AI vocabulary — agent vs. chatbot, hallucination, context, connectors/MCP, Skills — then shows how to turn a one-off prompt into a reusable, packaged workflow."
     },
     duration:"1h", audience:{fr:"Managers",en:"Managers"}, lang:"🇬🇧"
   },
   w5: {
     title:{fr:"De l'assistant à l'agent : automatisation IA avancée",en:"From Assistant to Agent: Advanced AI Automation"},
     desc:{
-      fr:"Session pratique en 4 temps : du chatbot à l'agent IA, cas d'usage concrets (traitement des demandes, reporting, traduction de roadbooks, analyse d'avis clients), construction de sa première automatisation, et feuille de route personnelle. Chaque participant repart avec une automatisation fonctionnelle.",
-      en:"A hands-on 4-part session: from chatbot to AI agent, concrete use cases (processing requests, reporting, roadbook translation, feedback analysis), building your first automation, and a personal automation roadmap. Everyone leaves with something functional."
+      fr:"Passe du prompt à la construction d'une IA qui agit. Démos en direct sur de vraies automatisations DMC, puis construis la tienne — d'un assistant spécialisé à un script fonctionnel ou une connexion MCP — avec un framework pour trouver tes prochaines automatisations.",
+      en:"Move from prompting AI to building AI that acts. Live demos on real DMC automations, then build one yourself — from a specialized assistant to a working script or MCP connection — plus a framework to find your next automations."
     },
     duration:"1h30 · pratique", audience:{fr:"Managers & Agents",en:"Managers & Agents"}, lang:"🇬🇧"
   }
@@ -610,9 +634,9 @@ const TRACKS = {
       }
     },
     sessions: [
-      {round:"1", time:"11:30–12:30", workshop:"w1", level:{fr:"Beginner",en:"Beginner"}, speakers:[{name:"Lou Anfriani",org:"Evaneos"}], facilitators:[{name:"Susanna Crementi",org:"Evaneos"}]},
-      {round:"2", time:"14:00–15:30", workshop:"w3", level:{fr:"Beginner",en:"Beginner"}, speakers:[{name:"Tiffany Weltman",org:"Catalyst.IA"},{name:"Lou Anfriani",org:"Evaneos"}], facilitators:[{name:"Susanna Crementi",org:"Evaneos"}]},
-      {round:"3", time:"16:00–17:30", workshop:"w2", level:{fr:"Beginner",en:"Beginner"}, speakers:[{name:"Nessrine Berrama",org:"Catalyst.IA"},{name:"Lou Anfriani",org:"Evaneos"}], facilitators:[{name:"Susanna Crementi",org:"Evaneos"}]},
+      {round:"1", time:"11:30–12:30", workshop:"w1_beginner", level:{fr:"Beginner",en:"Beginner"}, speakers:[{name:"Lou Anfriani",org:"Evaneos"}], facilitators:[{name:"Susanna Crementi",org:"Evaneos"}]},
+      {round:"2", time:"14:00–15:30", workshop:"w3_beginner", level:{fr:"Beginner",en:"Beginner"}, speakers:[{name:"Tiffany Weltman",org:"Catalyst.IA"},{name:"Lou Anfriani",org:"Evaneos"}], facilitators:[{name:"Susanna Crementi",org:"Evaneos"}]},
+      {round:"3", time:"16:00–17:30", workshop:"w2_beginner", level:{fr:"Beginner",en:"Beginner"}, speakers:[{name:"Nessrine Berrama",org:"Catalyst.IA"},{name:"Lou Anfriani",org:"Evaneos"}], facilitators:[{name:"Susanna Crementi",org:"Evaneos"}]},
     ]
   },
   intermediate: {
@@ -623,10 +647,17 @@ const TRACKS = {
       fr:"Tu utilises déjà l'IA occasionnellement : on structure, on approfondit. Sessions en français 🇫🇷.",
       en:"You already use AI from time to time: let's structure it and go deeper. Sessions in French 🇫🇷."
     },
+    notice: {
+      level:"required",
+      text: {
+        fr:"💻 N'oublie pas d'apporter ton ordinateur portable. Pour ce track, avoir un compte Pro sur un outil d'IA (ChatGPT, Claude, Gemini…) est <b>obligatoire</b>. Si tu n'en as pas encore, tu peux activer un essai gratuit d'un mois et te désabonner juste après l'événement.",
+        en:"💻 Don't forget to bring your laptop. For this track, having a Pro account on an AI tool (ChatGPT, Claude, Gemini…) is <b>mandatory</b>. If you don't have one yet, you can start a free one-month trial and cancel it right after the event."
+      }
+    },
     sessions: [
-      {round:"1", time:"11:30–12:30", workshop:"w1", level:{fr:"Intermediate",en:"Intermediate"}, speakers:[{name:"Pierre Couderc",org:"Evaneos"}], facilitators:[{name:"Régis Mikelbrencis",org:"Evaneos"}]},
-      {round:"2", time:"14:00–15:30", workshop:"w2", level:{fr:"Intermediate",en:"Intermediate"}, speakers:[{name:"Nessrine Berrama",org:"Catalyst.IA"},{name:"Pierre Couderc",org:"Evaneos"}], facilitators:[{name:"Régis Mikelbrencis",org:"Evaneos"}]},
-      {round:"3", time:"16:00–17:30", workshop:"w3", level:{fr:"Intermediate",en:"Intermediate"}, speakers:[{name:"Tiffany Weltman",org:"Catalyst.IA"},{name:"Pierre Couderc",org:"Evaneos"}], facilitators:[{name:"Régis Mikelbrencis",org:"Evaneos"}]},
+      {round:"1", time:"11:30–12:30", workshop:"w1_intermediate", level:{fr:"Intermediate",en:"Intermediate"}, speakers:[{name:"Pierre Couderc",org:"Evaneos"}], facilitators:[{name:"Régis Mikelbrencis",org:"Evaneos"}]},
+      {round:"2", time:"14:00–15:30", workshop:"w2_intermediate", level:{fr:"Intermediate",en:"Intermediate"}, speakers:[{name:"Nessrine Berrama",org:"Catalyst.IA"},{name:"Pierre Couderc",org:"Evaneos"}], facilitators:[{name:"Régis Mikelbrencis",org:"Evaneos"}]},
+      {round:"3", time:"16:00–17:30", workshop:"w3_intermediate", level:{fr:"Intermediate",en:"Intermediate"}, speakers:[{name:"Tiffany Weltman",org:"Catalyst.IA"},{name:"Pierre Couderc",org:"Evaneos"}], facilitators:[{name:"Régis Mikelbrencis",org:"Evaneos"}]},
     ]
   },
   power: {
