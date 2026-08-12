@@ -223,6 +223,9 @@ section.closing{position:relative;overflow:hidden;padding:80px 0;text-align:cent
 .cta-pill{display:inline-block;background:var(--beige);color:var(--green);font-weight:800;font-size:13.5px;letter-spacing:.03em;text-transform:uppercase;padding:15px 30px;border-radius:40px;cursor:pointer;border:none;}
 .cta-pill:hover{filter:brightness(.97);}
 .track-cta-wrap{text-align:center;margin-top:32px;margin-bottom:40px;}
+.track-fit-check{background:var(--red);color:var(--white);border-radius:16px;padding:22px 26px;font-family:var(--font-display);font-style:italic;font-size:15px;line-height:1.6;text-align:justify;}
+.track-fit-check b{font-weight:700;}
+.track-fit-check a{color:var(--white);text-decoration:underline;}
 .track-cta{display:inline-block;background:var(--green);color:var(--beige);font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:.04em;padding:13px 28px;border-radius:40px;text-decoration:none;}
 .track-cta:hover{filter:brightness(1.08);}
 
@@ -619,6 +622,10 @@ const TRACKS = {
       fr:"Premiers pas avec l'IA : comprendre, essayer, gagner en confiance. Sessions en français 🇫🇷.",
       en:"First steps with AI: understand, try, and build confidence. Sessions in French 🇫🇷."
     },
+    fitCheck: {
+      fr:"Ce groupe est fait pour toi <b>si tu débutes avec l'IA</b> ou si tu ne l'utilises qu'occasionnellement (par exemple via des outils conversationnels comme ChatGPT ou Gemini). Si tu penses que ce n'est pas le bon niveau pour toi, écris-nous à Paula à <a href=\"mailto:paula.pastor@evaneos.com\">paula.pastor@evaneos.com</a> dès que possible et on trouvera la meilleure option.",
+      en:"This group is for you <b>if you're just starting out with AI</b> or only use it occasionally (for example via conversational tools like ChatGPT or Gemini). If you think this isn't the right level for you, email Paula at <a href=\"mailto:paula.pastor@evaneos.com\">paula.pastor@evaneos.com</a> as soon as possible and we'll find the best option for you."
+    },
     notice: {
       level:"recommended",
       text: {
@@ -640,6 +647,10 @@ const TRACKS = {
       fr:"Tu utilises déjà l'IA occasionnellement : on structure, on approfondit. Sessions en français 🇫🇷.",
       en:"You already use AI from time to time: let's structure it and go deeper. Sessions in French 🇫🇷."
     },
+    fitCheck: {
+      fr:"Ce groupe est fait pour toi si <b>tu as déjà utilisé un outil d'IA conversationnelle</b> (ChatGPT, Claude, Gemini…), sais écrire un prompt simple qui donne une réponse utile, et as déjà créé un agent. Si tu penses que ce n'est pas le bon niveau pour toi, écris-nous à Paula à <a href=\"mailto:paula.pastor@evaneos.com\">paula.pastor@evaneos.com</a> dès que possible et on trouvera la meilleure option.",
+      en:"This group is for you if <b>you've already used a conversational AI tool</b> (ChatGPT, Claude, Gemini…), know how to write a simple prompt that gets a useful answer, and have already created an agent. If you think this isn't the right level for you, email Paula at <a href=\"mailto:paula.pastor@evaneos.com\">paula.pastor@evaneos.com</a> as soon as possible and we'll find the best option for you."
+    },
     notice: {
       level:"required",
       text: {
@@ -660,6 +671,10 @@ const TRACKS = {
     tagline: {
       fr:"Directeurs & responsables commerciaux : on construit des workflows et on automatise. Sessions en anglais 🇬🇧.",
       en:"Directors & sales managers: build workflows and automate. Sessions in English 🇬🇧."
+    },
+    fitCheck: {
+      fr:"Ce groupe est fait pour toi si <b>l'IA générative fait déjà partie de ton quotidien professionnel</b> — tu sais construire et affiner des prompts structurés, pas seulement poser des questions ponctuelles — et tu as une notion de base de ce qu'est un connecteur (qui relie un outil d'IA à des applications comme Drive, Sheets ou l'email) et une automatisation. Si tu ne te sens pas à l'aise à ce niveau, écris à Paula à <a href=\"mailto:paula.pastor@evaneos.com\">paula.pastor@evaneos.com</a> dès que possible pour qu'on trouve la meilleure option.",
+      en:"This track fits you if <b>generative AI is already part of your daily professional workflow</b> — you can build and iterate on structured prompts, not just ask one-off questions — and you have at least a basic sense of what a connector (linking an AI tool to apps like Drive, Sheets, or email) and an automation are. If you don't feel comfortable with this level, please email Paula at <a href=\"mailto:paula.pastor@evaneos.com\">paula.pastor@evaneos.com</a> as soon as possible so we can find you the right fit."
     },
     notice: {
       level:"required",
@@ -714,6 +729,7 @@ function renderTracks(){
         <div class="eyebrow workshops-label">${currentLang==="fr" ? "Vos ateliers" : "Your workshops"}</div>
         <div class="session-list">${sessionsHtml}</div>
         <div class="track-cta-wrap"><a href="#" class="track-cta" target="_blank" rel="noopener">${currentLang==="fr" ? "Aller plus loin" : "Dive deeper into this"}</a></div>
+        <div class="track-fit-check">${T(track.fitCheck)}</div>
       </div>
     `;
   });
