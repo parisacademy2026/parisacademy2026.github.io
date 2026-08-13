@@ -617,6 +617,7 @@ const TRACKS = {
   beginner: {
     label: "Foundation",
     color: "beginner",
+    ctaUrl: "https://mltngs.pt/s/aH1t9AkCLFVhpF2-2H09n_XCZaTudpq4xm3XhvYm1NS7nioPgJmAoqGcJWpvS7WX",
     pax: 22,
     tagline: {
       fr:"Premiers pas avec l'IA : comprendre, essayer, gagner en confiance. Sessions en français 🇫🇷.",
@@ -642,6 +643,7 @@ const TRACKS = {
   intermediate: {
     label: "Growth",
     color: "intermediate",
+    ctaUrl: "https://mltngs.pt/s/6zHQRJVe-JxgA276ugqzBnYLFG_A63K_HSjAzjEFD7W31pb8xvg-9YpkYIgfwkua",
     pax: 39,
     tagline: {
       fr:"Tu utilises déjà l'IA occasionnellement : on structure, on approfondit. Sessions en français 🇫🇷.",
@@ -667,6 +669,7 @@ const TRACKS = {
   power: {
     label: "Mastery",
     color: "power",
+    ctaUrl: "https://mltngs.pt/s/jVEr8x0kVu-1qLqV93bTbsCQ3QBaCik5a1xZCxZ8rXjR72397iS3oOQYiC_QPw-t",
     pax: 40,
     tagline: {
       fr:"Directeurs & responsables commerciaux : on construit des workflows et on automatise. Sessions en anglais 🇬🇧.",
@@ -728,7 +731,7 @@ function renderTracks(){
         ${noticeHtml}
         <div class="eyebrow workshops-label">${currentLang==="fr" ? "Vos ateliers" : "Your workshops"}</div>
         <div class="session-list">${sessionsHtml}</div>
-        <div class="track-cta-wrap"><a href="#" class="track-cta" target="_blank" rel="noopener">${currentLang==="fr" ? "Aller plus loin" : "Dive deeper into this"}</a></div>
+        <div class="track-cta-wrap"><a href="${track.ctaUrl}" class="track-cta" target="_blank" rel="noopener">${currentLang==="fr" ? "Aller plus loin" : "Dive deeper into this"}</a></div>
         <div class="track-fit-check">${T(track.fitCheck)}</div>
       </div>
     `;
